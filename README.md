@@ -30,4 +30,6 @@ xxd ciphered.txt
 openssl rsautl -decrypt -in ciphered.txt -inkey private.pem -out decrypted.txt
 ```
 
+### This does not work with big files, RSA 'public-key' crypto is not made for encrypting files. Do to that use a Symmetric cipher like AES.
+
 The rest of the files are tests with ***php*** and ***python***
