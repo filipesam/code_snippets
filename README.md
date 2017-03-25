@@ -32,6 +32,8 @@ openssl rsautl -decrypt -in ciphered.txt -inkey private.pem -out decrypted.txt
 
 ### This does not work with big files, RSA 'public-key' crypto is not made for encrypting files. Do to that use a Symmetric cipher like AES. Or use openssl smime:
 ```bash
+openssl req -x509 -nodes -days 100000 -newkey rsa:2048  -keyout privatekey.pem  -out pubkey.pem  -subj ‘/’
+
 openssl smime -encrypt -aes256 -in big_msgfile.txt -binary -outform DEM -out big_msgfile_encrypted.txt pubkey.pem
 ```
 
